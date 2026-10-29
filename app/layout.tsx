@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Rajesh Karra | AI Research & Engineering Portfolio',
-  description: 'Showcasing technical learnings in JAX, Large Language Models, Quantum Computing, and Mathematical Foundations.',
+  title: 'Rajesh Karra | AI Research, JAX Stack & Planetary Earth Intelligence',
+  description: 'Advancing JAX/Flax high-performance computing, StrangeWorks Save Earth & Humanity Vision, Large Language Models, and DeepMind research foundations.',
 };
 
 export default function RootLayout({
@@ -12,12 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen bg-space-950 text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
-        <div className="fixed inset-0 star-glow pointer-events-none" />
+    <html lang="en">
+      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900">
         {children}
       </body>
     </html>
   );
 }
-
