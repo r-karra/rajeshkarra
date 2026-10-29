@@ -131,10 +131,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           <span>Location: Hyderabad, India [17.3850° N, 78.4867° E]</span>
         </div>
         <div className="flex items-center space-x-3">
-          <span className="text-emerald-700 font-semibold flex items-center space-x-1">
+          <a
+            href="/api/neon/status"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-700 font-semibold flex items-center space-x-1.5 hover:underline"
+            title="View Neon Cloud Services live health status"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Interactive &amp; Editable Mode Available</span>
-          </span>
+            <span>Neon DB: Connected (Postgres 18)</span>
+          </a>
+          <span>·</span>
+          <span className="text-zinc-600 font-medium">Interactive &amp; Editable</span>
         </div>
       </div>
 
