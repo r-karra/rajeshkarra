@@ -32,6 +32,17 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  // Enforce Admin Authentication: Public visitors CANNOT modify or insert items
+  const adminKey = req.headers.get('x-admin-key');
+  const expectedKey = process.env.ADMIN_SECRET_KEY || 'rajesh@strangeworks2025';
+
+  if (!adminKey || adminKey !== expectedKey) {
+    return NextResponse.json(
+      { error: 'Unauthorized: Admin access required to edit or create items.' },
+      { status: 401 }
+    );
+  }
+
   const sql = getDb();
   if (!sql) {
     return NextResponse.json(

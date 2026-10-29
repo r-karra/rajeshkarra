@@ -191,13 +191,15 @@ export const EarthVisionShowcase: React.FC<EarthVisionShowcaseProps> = ({ isEdit
             </p>
           </div>
 
-          <button
-            onClick={handleAddNewPillar}
-            className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white font-mono text-xs shrink-0 self-start sm:self-auto"
-          >
-            <Plus className="w-3.5 h-3.5" />
-            <span>Add Focus Area</span>
-          </button>
+          {isEditMode && (
+            <button
+              onClick={handleAddNewPillar}
+              className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white font-mono text-xs shrink-0 self-start sm:self-auto"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Add Focus Area</span>
+            </button>
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -206,14 +208,16 @@ export const EarthVisionShowcase: React.FC<EarthVisionShowcaseProps> = ({ isEdit
               key={idx}
               className="jax-card rounded-2xl p-6 flex flex-col justify-between bg-white border border-zinc-200 hover:border-zinc-400 transition-all relative group"
             >
-              {/* Edit button */}
-              <button
-                onClick={() => handleEditPillar(pillar, idx)}
-                className="absolute top-4 right-4 p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-black opacity-80 group-hover:opacity-100 transition-all"
-                title="Edit this research pillar"
-              >
-                <Edit3 className="w-3.5 h-3.5" />
-              </button>
+              {/* Edit button (Admin only) */}
+              {isEditMode && (
+                <button
+                  onClick={() => handleEditPillar(pillar, idx)}
+                  className="absolute top-4 right-4 p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-black opacity-80 group-hover:opacity-100 transition-all"
+                  title="Edit this research pillar (Admin)"
+                >
+                  <Edit3 className="w-3.5 h-3.5" />
+                </button>
+              )}
 
               <div>
                 <div className="w-10 h-10 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center justify-center mb-4">

@@ -5,7 +5,11 @@ import { ExternalLink, GitBranch, Terminal, Globe2, ShieldCheck, Plus, Edit3 } f
 import { ACTIVE_PROJECTS, STRANGEWORKS_EARTH_VISION, ProjectRepo } from '@/data/portfolio-data';
 import { EditItemModal, EditableItemData } from './EditItemModal';
 
-export const ProjectsShowcase: React.FC = () => {
+interface ProjectsShowcaseProps {
+  isEditMode?: boolean;
+}
+
+export const ProjectsShowcase: React.FC<ProjectsShowcaseProps> = ({ isEditMode = false }) => {
   const [projects, setProjects] = useState<ProjectRepo[]>(ACTIVE_PROJECTS);
   const [editingItem, setEditingItem] = useState<EditableItemData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -123,13 +127,15 @@ export const ProjectsShowcase: React.FC = () => {
           </p>
         </div>
 
-        <button
-          onClick={handleAddNewProject}
-          className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-black hover:bg-zinc-800 text-white font-mono text-xs shrink-0 self-start sm:self-auto"
-        >
-          <Plus className="w-3.5 h-3.5" />
-          <span>Add Project (Neon DB)</span>
-        </button>
+        {isEditMode && (
+          <button
+            onClick={handleAddNewProject}
+            className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-black hover:bg-zinc-800 text-white font-mono text-xs shrink-0 self-start sm:self-auto"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            <span>Add Project (Neon DB)</span>
+          </button>
+        )}
       </div>
 
       {/* Flagship Banner for StrangeWorks */}
@@ -178,14 +184,16 @@ export const ProjectsShowcase: React.FC = () => {
               proj.isHighlighted ? 'border-zinc-900 shadow-md' : 'border-zinc-200 hover:border-zinc-400'
             }`}
           >
-            {/* Edit Icon */}
-            <button
-              onClick={() => handleEditProject(proj, idx)}
-              className="absolute top-4 right-4 p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-black opacity-80 group-hover:opacity-100 transition-all"
-              title="Edit project metadata"
-            >
-              <Edit3 className="w-3.5 h-3.5" />
-            </button>
+            {/* Edit Icon (Admin only) */}
+            {isEditMode && (
+              <button
+                onClick={() => handleEditProject(proj, idx)}
+                className="absolute top-4 right-4 p-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-black opacity-80 group-hover:opacity-100 transition-all"
+                title="Edit project metadata (Admin)"
+              >
+                <Edit3 className="w-3.5 h-3.5" />
+              </button>
+            )}
 
             <div>
               <div className="flex items-start justify-between gap-2 mb-2 pr-6">

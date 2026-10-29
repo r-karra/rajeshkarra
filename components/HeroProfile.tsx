@@ -18,9 +18,13 @@ import { EditItemModal, EditableItemData } from './EditItemModal';
 
 interface HeroProfileProps {
   onNavigateToVision?: () => void;
+  isEditMode?: boolean;
 }
 
-export const HeroProfile: React.FC<HeroProfileProps> = ({ onNavigateToVision }) => {
+export const HeroProfile: React.FC<HeroProfileProps> = ({
+  onNavigateToVision,
+  isEditMode = false,
+}) => {
   const [profile, setProfile] = useState(PROFILE_DATA);
   const [editingItem, setEditingItem] = useState<EditableItemData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,15 +55,17 @@ export const HeroProfile: React.FC<HeroProfileProps> = ({ onNavigateToVision }) 
     <section className="space-y-10">
       {/* Editorial Profile Banner */}
       <div className="jax-card rounded-2xl p-6 sm:p-12 relative overflow-hidden bg-white border border-zinc-200 shadow-sm">
-        {/* In-place edit button */}
-        <button
-          onClick={handleEditProfile}
-          className="absolute top-6 right-6 p-2 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-black transition-all flex items-center space-x-1.5 text-xs font-mono"
-          title="Edit profile information"
-        >
-          <Edit3 className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Edit Bio</span>
-        </button>
+        {/* In-place edit button (Admin only) */}
+        {isEditMode && (
+          <button
+            onClick={handleEditProfile}
+            className="absolute top-6 right-6 p-2 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-black transition-all flex items-center space-x-1.5 text-xs font-mono"
+            title="Edit profile information (Admin)"
+          >
+            <Edit3 className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Edit Bio</span>
+          </button>
+        )}
 
         <div className="relative z-10 max-w-4xl space-y-4">
           <div className="flex flex-wrap items-center gap-3">

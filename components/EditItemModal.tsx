@@ -54,10 +54,14 @@ export const EditItemModal: React.FC<EditItemModalProps> = ({
     };
 
     try {
-      // 1. Sync with Neon DB backend API
+      // 1. Sync with Neon DB backend API with Admin Key authorization
+      const adminKey = typeof window !== 'undefined' ? localStorage.getItem('neon_admin_token') : '';
       const res = await fetch('/api/items', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': adminKey || '',
+        },
         body: JSON.stringify({
           id: updatedItem.id,
           category: updatedItem.category,
@@ -69,10 +73,15 @@ export const EditItemModal: React.FC<EditItemModalProps> = ({
       });
 
       const data = await res.json();
-      if (data.connected) {
+      if (res.status === 401) {
+        setStatusMessage('⚠️ Unauthorized: Admin Key required to persist to Neon DB.');
+        setIsSaving(false);
+        return;
+      }
+      if (data.success || data.connected) {
         setStatusMessage('✓ Saved to Neon Postgres!');
       } else {
-        setStatusMessage('✓ Saved to local session!');
+        setStatusMessage('✓ Saved to local state!');
       }
 
       onSave(updatedItem);

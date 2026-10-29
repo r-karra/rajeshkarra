@@ -12,14 +12,24 @@ import { DocumentationHub } from '@/components/DocumentationHub';
 import { PhoneticsLab } from '@/components/PhoneticsLab';
 import { PROFILE_DATA, STRANGEWORKS_EARTH_VISION } from '@/data/portfolio-data';
 import { Globe2 } from 'lucide-react';
+import { AdminProvider, useAdmin } from '@/lib/AdminContext';
+import { AdminAuthModal } from '@/components/AdminAuthModal';
 
-export default function Home() {
+function HomeContent() {
   const [activeTab, setActiveTab] = useState<TabKey>('overview');
-  const [isEditMode, setIsEditMode] = useState<boolean>(true);
+  const {
+    isAdmin,
+    isEditMode,
+    setIsEditMode,
+    isAuthModalOpen,
+    closeAuthModal,
+    login,
+    logout,
+  } = useAdmin();
 
   return (
     <div className="relative min-h-screen flex flex-col bg-white text-zinc-900 font-sans">
-      {/* Editorial Navbar with 3-Horizontal Dropdown Menu */}
+      {/* Editorial Navbar with 3-Horizontal Dropdown Menu & Admin Guard */}
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -30,16 +40,28 @@ export default function Home() {
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {activeTab === 'overview' && (
-          <HeroProfile onNavigateToVision={() => setActiveTab('vision')} />
+          <HeroProfile
+            onNavigateToVision={() => setActiveTab('vision')}
+            isEditMode={isEditMode}
+          />
         )}
         {activeTab === 'vision' && <EarthVisionShowcase isEditMode={isEditMode} />}
-        {activeTab === 'projects' && <ProjectsShowcase />}
+        {activeTab === 'projects' && <ProjectsShowcase isEditMode={isEditMode} />}
         {activeTab === 'jax-stack' && <JaxStackSection />}
         {activeTab === 'curriculum' && <CurriculumShowcase />}
         {activeTab === 'media' && <MediaMatrix />}
         {activeTab === 'documentation' && <DocumentationHub />}
         {activeTab === 'phonetics' && <PhoneticsLab />}
       </main>
+
+      {/* Admin Authorization Modal */}
+      <AdminAuthModal
+        isOpen={isAuthModalOpen}
+        onClose={closeAuthModal}
+        isAdmin={isAdmin}
+        onLoginSuccess={login}
+        onLogout={logout}
+      />
 
       {/* Strangeworks Editorial Footer */}
       <footer className="border-t border-zinc-200 bg-white py-12 mt-20">
@@ -126,5 +148,13 @@ export default function Home() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <AdminProvider>
+      <HomeContent />
+    </AdminProvider>
   );
 }

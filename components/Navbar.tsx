@@ -16,8 +16,11 @@ import {
   ChevronDown,
   Edit3,
   Check,
+  Lock,
+  ShieldCheck,
 } from 'lucide-react';
 import { PROFILE_DATA } from '@/data/portfolio-data';
+import { useAdmin } from '@/lib/AdminContext';
 
 export type TabKey =
   | 'overview'
@@ -44,6 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { isAdmin, openAuthModal } = useAdmin();
 
   const sections: {
     key: TabKey;
@@ -142,7 +146,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span>Neon DB: Connected (Postgres 18)</span>
           </a>
           <span>·</span>
-          <span className="text-zinc-600 font-medium">Interactive &amp; Editable</span>
+          {isAdmin ? (
+            <span className="text-emerald-700 font-semibold flex items-center space-x-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Admin Session (Rajesh Karra)</span>
+            </span>
+          ) : (
+            <button
+              onClick={openAuthModal}
+              className="text-zinc-500 hover:text-zinc-800 transition-colors flex items-center space-x-1"
+            >
+              <Lock className="w-3 h-3 text-zinc-400" />
+              <span>Public View (Read-Only)</span>
+            </button>
+          )}
         </div>
       </div>
 
@@ -179,21 +196,42 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="font-bold text-zinc-900">{activeSectionObj?.label}</span>
           </div>
 
-          {/* Edit Mode Toggle Button */}
-          {setIsEditMode && (
+          {/* Admin Edit Controls (Only available/visible when authenticated as Admin) */}
+          {isAdmin ? (
+            <div className="flex items-center space-x-1.5">
+              {setIsEditMode && (
+                <button
+                  onClick={() => setIsEditMode(!isEditMode)}
+                  className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
+                    isEditMode
+                      ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                      : 'bg-white text-zinc-700 border-zinc-200 hover:bg-zinc-50'
+                  }`}
+                  title="Toggle Admin edit mode"
+                >
+                  <Edit3 className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">
+                    {isEditMode ? 'Editing On' : 'Edit Mode'}
+                  </span>
+                </button>
+              )}
+              <button
+                onClick={openAuthModal}
+                className="inline-flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition-colors"
+                title="Admin Settings & Session"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="hidden md:inline">Admin</span>
+              </button>
+            </div>
+          ) : (
             <button
-              onClick={() => setIsEditMode(!isEditMode)}
-              className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
-                isEditMode
-                  ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
-                  : 'bg-white text-zinc-700 border-zinc-200 hover:bg-zinc-50'
-              }`}
-              title="Toggle interactive editing mode across the site"
+              onClick={openAuthModal}
+              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900 transition-colors"
+              title="Admin login (Rajesh Karra only)"
             >
-              <Edit3 className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">
-                {isEditMode ? 'Editing Enabled' : 'Edit Mode'}
-              </span>
+              <Lock className="w-3.5 h-3.5 text-zinc-400" />
+              <span className="hidden sm:inline">Admin</span>
             </button>
           )}
 
