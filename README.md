@@ -1,4 +1,4 @@
-# Starlight Portfolio 🚀
+# rajeshkarra 🚀
 
 > High-contrast, space-grade developer & AI research portfolio built with Next.js (App Router), Tailwind CSS, and Lucide Icons.
 
@@ -44,3 +44,4 @@ npm i -g vercel
 vercel
 ```
 Or import directly via the [Vercel Dashboard](https://vercel.com/new).
+
