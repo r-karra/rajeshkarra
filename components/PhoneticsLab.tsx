@@ -19,14 +19,14 @@ export const PhoneticsLab: React.FC = () => {
   return (
     <section className="space-y-8">
       <div>
-        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-amber-700 uppercase tracking-wider mb-1">
-          <Volume2 className="w-3.5 h-3.5 text-amber-600" />
+        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-zinc-600 uppercase tracking-wider mb-1">
+          <Volume2 className="w-3.5 h-3.5 text-black" />
           <span>Scientific Communication &amp; Global Fluency</span>
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+        <h2 className="text-2xl font-serif font-bold text-zinc-950 tracking-tight">
           {PHONETICS_CURRICULUM.title}
         </h2>
-        <p className="text-sm text-slate-600 mt-1 max-w-3xl">
+        <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-3xl font-sans">
           {PHONETICS_CURRICULUM.subtitle}. Formulated to help international researchers deliver conference presentations with effortless natural rhythm and acoustic clarity.
         </p>
       </div>

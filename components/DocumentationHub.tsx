@@ -50,14 +50,14 @@ export const DocumentationHub: React.FC = () => {
     <section className="space-y-8">
       {/* Header */}
       <div>
-        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-blue-700 uppercase tracking-wider mb-1">
-          <BookOpen className="w-3.5 h-3.5 text-blue-600" />
+        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-zinc-600 uppercase tracking-wider mb-1">
+          <BookOpen className="w-3.5 h-3.5 text-black" />
           <span>Curated Documentation &amp; Link Knowledge Base</span>
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+        <h2 className="text-2xl font-serif font-bold text-zinc-950 tracking-tight">
           Comprehensive Research Links &amp; Documentation Matrix
         </h2>
-        <p className="text-sm text-slate-600 mt-1 max-w-3xl">
+        <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-3xl font-sans">
           Direct access to every research paper, framework document, deep-learning tutorial, course syllabus, and tool link synthesized from the master research hub ({CURATED_DOCUMENTATION_LINKS.length} verified references).
         </p>
       </div>

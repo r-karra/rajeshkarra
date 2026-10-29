@@ -24,20 +24,20 @@ export const CurriculumShowcase: React.FC = () => {
   return (
     <section className="space-y-8">
       <div>
-        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-blue-700 uppercase tracking-wider mb-1">
-          <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
+        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-zinc-600 uppercase tracking-wider mb-1">
+          <GraduationCap className="w-3.5 h-3.5 text-black" />
           <span>Curricula, Research Syllabi &amp; Academic Blueprints</span>
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+        <h2 className="text-2xl font-serif font-bold text-zinc-950 tracking-tight">
           Structured Educational Architectures &amp; Doctoral Preparation
         </h2>
-        <p className="text-sm text-slate-600 mt-1 max-w-3xl">
+        <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-3xl font-sans">
           Comprehensive pedagogical roadmaps: from 5-module Generative AI engineering to proof-oriented TIFR mathematical foundations and soul-centric computing.
         </p>
       </div>
 
       {/* Sub-tab navigation */}
-      <div className="flex flex-wrap gap-2 p-1.5 bg-slate-100 rounded-xl border border-slate-200">
+      <div className="flex flex-wrap gap-2 p-1.5 bg-zinc-100 rounded-xl border border-zinc-200">
         <button
           onClick={() => setActiveSubTab('syllabus')}
           className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${

@@ -71,58 +71,58 @@ uv run scripts/pubchem_api.py resolve --name "aspirin" --output result.json
   return (
     <section className="space-y-10">
       <div>
-        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-blue-700 uppercase tracking-wider mb-1">
-          <Cpu className="w-3.5 h-3.5 text-blue-600" />
+        <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-zinc-600 uppercase tracking-wider mb-1">
+          <Cpu className="w-3.5 h-3.5 text-black" />
           <span>Google DeepMind Core Architecture</span>
         </div>
-        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+        <h2 className="text-2xl font-serif font-bold text-zinc-950 tracking-tight">
           The JAX Stack, TPU Pod Scaling &amp; DeepMind Science
         </h2>
-        <p className="text-sm text-slate-600 mt-1 max-w-3xl">
+        <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-3xl font-sans">
           Hardware-accelerated numerical computing, functional transformations (jit, grad, vmap, pmap), multi-agent science partners, and quantum simulators.
         </p>
       </div>
 
       {/* Note Card 1: JAX & Cloud TPUs */}
-      <article className="jax-card rounded-2xl p-6 sm:p-8 space-y-4 bg-white border border-slate-200">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+      <article className="jax-card rounded-2xl p-6 sm:p-8 space-y-4 bg-white border border-zinc-200">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-100 pb-4">
           <div className="flex items-center space-x-2">
-            <Code2 className="w-5 h-5 text-blue-600" />
-            <h3 className="text-lg font-bold text-slate-900">
+            <Code2 className="w-5 h-5 text-zinc-900" />
+            <h3 className="text-lg font-serif font-bold text-zinc-950">
               Accelerating LLMs: Functional JAX, Flax &amp; Cloud TPU Pod Execution
             </h3>
           </div>
-          <span className="text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+          <span className="text-xs font-mono font-semibold text-zinc-800 bg-zinc-100 px-2.5 py-1 rounded-md border border-zinc-200">
             JAX 101 · High-Performance ML
           </span>
         </div>
 
-        <p className="text-sm text-slate-600 leading-relaxed">
-          Google DeepMind builds breakthroughs like AlphaFold 3, Gemini, and Gemma on the JAX ecosystem. Unlike eager execution paradigms, JAX uses pure functions combined with XLA (Accelerated Linear Algebra) compilation. Key primitives include:
+        <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans">
+          Google DeepMind builds breakthroughs like AlphaFold 3, Gemini, and Gemma on the JAX ecosystem. Pure functions combined with XLA compilation enable seamless TPU pod scaling:
         </p>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
-          <li className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-            <strong className="text-blue-700 font-mono">jax.jit:</strong> Compiles Python functions into fused XLA kernels for TPU/GPU execution.
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-zinc-700 font-sans">
+          <li className="p-3 rounded-xl bg-zinc-50 border border-zinc-200">
+            <strong className="text-black font-mono">jax.jit:</strong> Compiles Python functions into fused XLA kernels for TPU/GPU execution.
           </li>
-          <li className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-            <strong className="text-blue-700 font-mono">jax.grad:</strong> Reverse-mode automatic differentiation through arbitrary Python control flows.
+          <li className="p-3 rounded-xl bg-zinc-50 border border-zinc-200">
+            <strong className="text-black font-mono">jax.grad:</strong> Reverse-mode automatic differentiation through arbitrary Python control flows.
           </li>
-          <li className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-            <strong className="text-blue-700 font-mono">jax.vmap:</strong> Vectorizing functions across batch dimensions with zero code modifications.
+          <li className="p-3 rounded-xl bg-zinc-50 border border-zinc-200">
+            <strong className="text-black font-mono">jax.vmap:</strong> Vectorizing functions across batch dimensions with zero code modifications.
           </li>
-          <li className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-            <strong className="text-blue-700 font-mono">jax.pmap:</strong> Single-Program Multiple-Data (SPMD) parallel dispatch across TPU cores.
+          <li className="p-3 rounded-xl bg-zinc-50 border border-zinc-200">
+            <strong className="text-black font-mono">jax.pmap:</strong> Single-Program Multiple-Data (SPMD) parallel dispatch across TPU cores.
           </li>
         </ul>
 
         {/* Code Snippet */}
-        <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-900 shadow-md">
-          <div className="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs font-mono text-slate-300">
+        <div className="relative rounded-xl overflow-hidden border border-zinc-800 bg-black shadow-md">
+          <div className="flex items-center justify-between px-4 py-2 bg-zinc-900 border-b border-zinc-800 text-xs font-mono text-zinc-300">
             <span>TransformerAttentionBlock.jax</span>
             <button
               onClick={() => copyToClipboard(sampleJaxSnippet, 'jax')}
-              className="inline-flex items-center space-x-1 text-slate-400 hover:text-white transition-colors"
+              className="inline-flex items-center space-x-1 text-zinc-400 hover:text-white transition-colors"
             >
               {copiedId === 'jax' ? (
                 <>
@@ -137,18 +137,18 @@ uv run scripts/pubchem_api.py resolve --name "aspirin" --output result.json
               )}
             </button>
           </div>
-          <pre className="p-4 text-xs font-mono text-blue-200 overflow-x-auto leading-relaxed">
+          <pre className="p-4 text-xs font-mono text-emerald-300 overflow-x-auto leading-relaxed">
             <code>{sampleJaxSnippet}</code>
           </pre>
         </div>
       </article>
 
       {/* Note Card 2: DeepMind Co-Scientist & Science Skills with uv */}
-      <article className="jax-card rounded-2xl p-6 sm:p-8 space-y-4 bg-white border border-slate-200">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+      <article className="jax-card rounded-2xl p-6 sm:p-8 space-y-4 bg-white border border-zinc-200">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-100 pb-4">
           <div className="flex items-center space-x-2">
             <FlaskConical className="w-5 h-5 text-emerald-600" />
-            <h3 className="text-lg font-bold text-slate-900">
+            <h3 className="text-lg font-serif font-bold text-zinc-950">
               Google DeepMind Co-Scientist &amp; Science Skills Testing via uv
             </h3>
           </div>
@@ -157,17 +157,17 @@ uv run scripts/pubchem_api.py resolve --name "aspirin" --output result.json
           </span>
         </div>
 
-        <p className="text-sm text-slate-600 leading-relaxed">
-          <strong>Co-Scientist</strong> is DeepMind&apos;s multi-agent AI system designed to accelerate real-world scientific discovery. In tandem, the open DeepMind Science Skills suite encapsulates programmatic access to biological databases (AlphaFold DB, UniProt, PubChem, ChEMBL, Foldseek) executed via standalone Python wrappers and the fast <code className="bg-slate-100 text-blue-700 px-1.5 py-0.5 rounded font-mono text-xs">uv</code> package manager.
+        <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans">
+          <strong>Co-Scientist</strong> is DeepMind&apos;s multi-agent AI system designed to accelerate scientific discovery. Biological tools (AlphaFold DB, UniProt, PubChem, ChEMBL) are executed via standalone wrappers with the fast <code className="bg-zinc-100 text-black px-1.5 py-0.5 rounded font-mono text-xs">uv</code> runner.
         </p>
 
         {/* UV Runner Snippet */}
-        <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-900 shadow-md">
-          <div className="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs font-mono text-slate-300">
+        <div className="relative rounded-xl overflow-hidden border border-zinc-800 bg-black shadow-md">
+          <div className="flex items-center justify-between px-4 py-2 bg-zinc-900 border-b border-zinc-800 text-xs font-mono text-zinc-300">
             <span>science-skills-test.sh</span>
             <button
               onClick={() => copyToClipboard(uvScienceSnippet, 'uv')}
-              className="inline-flex items-center space-x-1 text-slate-400 hover:text-white transition-colors"
+              className="inline-flex items-center space-x-1 text-zinc-400 hover:text-white transition-colors"
             >
               {copiedId === 'uv' ? (
                 <>
@@ -189,30 +189,30 @@ uv run scripts/pubchem_api.py resolve --name "aspirin" --output result.json
       </article>
 
       {/* Note Card 3: Quantum Variational Circuits */}
-      <article className="jax-card rounded-2xl p-6 sm:p-8 space-y-4 bg-white border border-slate-200">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+      <article className="jax-card rounded-2xl p-6 sm:p-8 space-y-4 bg-white border border-zinc-200">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-100 pb-4">
           <div className="flex items-center space-x-2">
             <Cpu className="w-5 h-5 text-indigo-600" />
-            <h3 className="text-lg font-bold text-slate-900">
+            <h3 className="text-lg font-serif font-bold text-zinc-950">
               Quantum Machine Learning: Parameterized Variational Ansatz (Cirq &amp; TFQ)
             </h3>
           </div>
-          <span className="text-xs font-mono font-semibold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200">
+          <span className="text-xs font-mono font-semibold text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200">
             Hybrid Quantum-Classical
           </span>
         </div>
 
-        <p className="text-sm text-slate-600 leading-relaxed">
-          Quantum Neural Networks (QNNs) employ Parameterized Quantum Circuits (PQCs) as trainable layers. Backpropagation gradients are calculated using the Parameter Shift Rule across quantum simulator states.
+        <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans">
+          Quantum Neural Networks (QNNs) employ Parameterized Quantum Circuits (PQCs) as trainable layers. Gradients are computed using the Parameter Shift Rule across quantum states.
         </p>
 
         {/* Code Snippet */}
-        <div className="relative rounded-xl overflow-hidden border border-slate-800 bg-slate-900 shadow-md">
-          <div className="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700 text-xs font-mono text-slate-300">
+        <div className="relative rounded-xl overflow-hidden border border-zinc-800 bg-black shadow-md">
+          <div className="flex items-center justify-between px-4 py-2 bg-zinc-900 border-b border-zinc-800 text-xs font-mono text-zinc-300">
             <span>QuantumVariationalCircuit.py</span>
             <button
               onClick={() => copyToClipboard(sampleQmlSnippet, 'qml')}
-              className="inline-flex items-center space-x-1 text-slate-400 hover:text-white transition-colors"
+              className="inline-flex items-center space-x-1 text-zinc-400 hover:text-white transition-colors"
             >
               {copiedId === 'qml' ? (
                 <>
@@ -227,21 +227,21 @@ uv run scripts/pubchem_api.py resolve --name "aspirin" --output result.json
               )}
             </button>
           </div>
-          <pre className="p-4 text-xs font-mono text-indigo-200 overflow-x-auto leading-relaxed">
+          <pre className="p-4 text-xs font-mono text-emerald-300 overflow-x-auto leading-relaxed">
             <code>{sampleQmlSnippet}</code>
           </pre>
         </div>
       </article>
 
       {/* Interactive Q&A Prompts Section */}
-      <div className="jax-card rounded-2xl p-6 sm:p-8 bg-white border border-slate-200">
+      <div className="jax-card rounded-2xl p-6 sm:p-8 bg-white border border-zinc-200">
         <div className="flex items-center space-x-2 mb-2">
-          <HelpCircle className="w-5 h-5 text-blue-600" />
-          <h3 className="text-lg font-bold text-slate-900">
+          <HelpCircle className="w-5 h-5 text-black" />
+          <h3 className="text-lg font-serif font-bold text-zinc-950">
             Interactive Technical Q&amp;A Prompts
           </h3>
         </div>
-        <p className="text-xs text-slate-600 mb-6">
+        <p className="text-xs text-zinc-600 mb-6 font-sans">
           Fundamental conceptual inquiries on JAX pretraining, attention dynamics, and multi-agent systems extracted from research synthesis.
         </p>
 
@@ -249,13 +249,13 @@ uv run scripts/pubchem_api.py resolve --name "aspirin" --output result.json
           {INTERACTIVE_QA_PROMPTS.map((qa, idx) => (
             <div
               key={idx}
-              className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2"
+              className="p-4 rounded-xl bg-zinc-50 border border-zinc-200 space-y-2"
             >
-              <div className="text-xs font-bold text-slate-900 flex items-start space-x-2">
-                <span className="text-blue-600 font-mono">Q{idx + 1}:</span>
+              <div className="text-xs font-bold font-serif text-zinc-950 flex items-start space-x-2">
+                <span className="text-emerald-700 font-mono">Q{idx + 1}:</span>
                 <span>{qa.question}</span>
               </div>
-              <p className="text-xs text-slate-700 pl-6 leading-relaxed">
+              <p className="text-xs text-zinc-700 pl-6 leading-relaxed font-sans">
                 {qa.answer}
               </p>
             </div>
@@ -265,4 +265,3 @@ uv run scripts/pubchem_api.py resolve --name "aspirin" --output result.json
     </section>
   );
 };
-

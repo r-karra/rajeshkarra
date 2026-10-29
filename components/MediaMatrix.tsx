@@ -36,29 +36,29 @@ export const MediaMatrix: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-blue-700 uppercase tracking-wider mb-1">
-            <Film className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center space-x-1.5 text-xs font-mono font-semibold text-zinc-600 uppercase tracking-wider mb-1">
+            <Film className="w-3.5 h-3.5 text-black" />
             <span>Interactive Media, Lectures &amp; Video Embeddings</span>
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl font-serif font-bold text-zinc-950 tracking-tight">
             Academic Video Matrix &amp; Lecture Library
           </h2>
-          <p className="text-sm text-slate-600 mt-1 max-w-2xl">
+          <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-2xl font-sans">
             Watch lectures directly with embedded YouTube players covering JAX, Karpathy deep dives, MIT OCW, Quantum algorithms, and Save Earth biodiversity research.
           </p>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap gap-1.5 items-center bg-slate-100 p-1.5 rounded-xl border border-slate-200">
-          <Filter className="w-3.5 h-3.5 text-slate-500 ml-1.5 mr-1" />
+        <div className="flex flex-wrap gap-1.5 items-center bg-zinc-100 p-1.5 rounded-xl border border-zinc-200">
+          <Filter className="w-3.5 h-3.5 text-zinc-500 ml-1.5 mr-1" />
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`text-xs px-2.5 py-1 rounded-lg transition-all font-medium ${
+              className={`text-xs px-2.5 py-1 rounded-lg transition-all font-mono ${
                 selectedCategory === cat
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                  ? 'bg-black text-white shadow-xs font-semibold'
+                  : 'text-zinc-600 hover:text-black hover:bg-white/70'
               }`}
             >
               {cat}
