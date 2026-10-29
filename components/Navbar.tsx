@@ -163,33 +163,33 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand identity */}
         <div
-          className="flex items-center space-x-3 cursor-pointer shrink-0"
+          className="flex items-center space-x-2.5 sm:space-x-3 cursor-pointer shrink min-w-0"
           onClick={() => {
             setActiveTab('overview');
             setIsDropdownOpen(false);
           }}
         >
-          <div className="w-9 h-9 rounded-md bg-black text-white flex items-center justify-center font-mono font-bold text-sm tracking-wider shadow-xs">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-black text-white flex items-center justify-center font-mono font-bold text-xs sm:text-sm tracking-wider shrink-0 shadow-xs">
             RK
           </div>
-          <div>
-            <div className="font-serif font-bold text-base tracking-tight text-zinc-950 flex items-center space-x-2">
-              <span>{PROFILE_DATA.name}</span>
-              <span className="text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-700 border border-zinc-200 uppercase">
+          <div className="min-w-0">
+            <div className="font-serif font-bold text-sm sm:text-base tracking-tight text-zinc-950 flex items-center space-x-1.5 sm:space-x-2 truncate">
+              <span className="truncate">{PROFILE_DATA.name}</span>
+              <span className="text-[9px] sm:text-[10px] font-mono font-medium px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-700 border border-zinc-200 uppercase shrink-0">
                 Open Lab
               </span>
             </div>
-            <div className="text-[11px] text-zinc-500 font-mono tracking-tight">
+            <div className="text-[10px] sm:text-[11px] text-zinc-500 font-mono tracking-tight hidden sm:block truncate">
               AI Researcher · DeepMind &amp; Planetary Systems
             </div>
           </div>
         </div>
 
         {/* Center / Right: 3 Horizontal Lines Dropdown Menu Button */}
-        <div className="flex items-center space-x-2.5">
+        <div className="flex items-center space-x-1.5 sm:space-x-2.5 shrink-0">
           {/* Quick Active Section Pill */}
           <div className="hidden lg:flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-zinc-100/80 border border-zinc-200 text-xs font-mono text-zinc-800">
             <span className="text-zinc-400">Section:</span>
@@ -198,11 +198,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Admin Edit Controls (Only available/visible when authenticated as Admin) */}
           {isAdmin ? (
-            <div className="flex items-center space-x-1.5">
+            <div className="flex items-center space-x-1 sm:space-x-1.5">
               {setIsEditMode && (
                 <button
                   onClick={() => setIsEditMode(!isEditMode)}
-                  className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
+                  className={`inline-flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
                     isEditMode
                       ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
                       : 'bg-white text-zinc-700 border-zinc-200 hover:bg-zinc-50'
@@ -217,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
               <button
                 onClick={openAuthModal}
-                className="inline-flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition-colors"
+                className="inline-flex items-center space-x-1 px-2 sm:px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition-colors"
                 title="Admin Settings & Session"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
@@ -227,7 +227,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           ) : (
             <button
               onClick={openAuthModal}
-              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900 transition-colors"
+              className="inline-flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900 transition-colors"
               title="Admin login (Rajesh Karra only)"
             >
               <Lock className="w-3.5 h-3.5 text-zinc-400" />
@@ -250,7 +250,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-semibold font-display tracking-wide transition-all border ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-xs font-semibold font-display tracking-wide transition-all border ${
                 isDropdownOpen
                   ? 'bg-black text-white border-black shadow-md'
                   : 'bg-white text-zinc-900 border-zinc-300 hover:border-zinc-900 hover:bg-zinc-50'
@@ -266,15 +266,36 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {isDropdownOpen ? 'Close' : 'Menu'}
               </span>
               <ChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                className={`w-3.5 h-3.5 transition-transform duration-200 hidden sm:inline-block ${
                   isDropdownOpen ? 'rotate-180' : ''
                 }`}
               />
             </button>
 
-            {/* Dropdown Menu Modal */}
+            {/* Dropdown Menu Modal (Responsive width bounded to screen) */}
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-80 sm:w-96 rounded-2xl bg-white border border-zinc-200 shadow-2xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+              <div className="absolute right-0 mt-2 w-[calc(100vw-1.5rem)] sm:w-96 max-w-sm rounded-2xl bg-white border border-zinc-200 shadow-2xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                {/* Mobile-Only Status Pill Header */}
+                <div className="sm:hidden px-3 py-2 bg-zinc-50 rounded-xl mb-1.5 border border-zinc-100 flex items-center justify-between text-[11px] font-mono">
+                  <a
+                    href="/api/neon/status"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-700 font-semibold flex items-center space-x-1 hover:underline"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Neon DB: Active</span>
+                  </a>
+                  <a
+                    href={PROFILE_DATA.links.strangeworks}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-800 bg-emerald-100/60 px-2 py-0.5 rounded font-semibold flex items-center space-x-1 border border-emerald-200"
+                  >
+                    <span>StrangeWorks ↗</span>
+                  </a>
+                </div>
+
                 <div className="px-3 py-2 border-b border-zinc-100 mb-1 flex items-center justify-between">
                   <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 font-semibold">
                     Select Research Domain

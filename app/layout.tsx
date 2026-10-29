@@ -1,9 +1,16 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Rajesh Karra | AI Research, JAX Stack & Planetary Earth Intelligence',
   description: 'Advancing JAX/Flax high-performance computing, StrangeWorks Save Earth & Humanity Vision, Large Language Models, and DeepMind research foundations.',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#ffffff',
 };
 
 export default function RootLayout({

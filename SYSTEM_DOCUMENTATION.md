@@ -103,6 +103,15 @@ The infrastructure is provisioned through Neon's declarative specification in [`
 * **Video Lecture Matrix (49+ Lectures):** Direct inline YouTube player modal allowing visitors to watch MIT, Stanford, DeepMind, and physics lectures without leaving the site.
 * **Phonetics & Fluency Lab:** American connected speech reductions, flap T patterns, and intonation guides.
 
+### 4.5 Mobile & Viewport Responsiveness Architecture
+* **Dynamic Viewport Configuration:** Configured Next.js 14 `Viewport` with device width adaptation, fluid typography scaling, and proper touch targets.
+* **Compact Mobile Navbar & Bounded Dropdown:**
+  * Auto-collapses long profile subtitles and titles on small screens (<640px) to prevent button wrapping and header jitter.
+  * Bounded dropdown width (`w-[calc(100vw-1.5rem)] max-w-sm`) preventing any horizontal overflow or viewport protrusion on narrow mobile devices (iPhone, Pixel, Galaxy).
+  * Injects a mobile telemetry banner into the dropdown menu so mobile visitors retain one-tap access to live Neon DB status and StrangeWorks external platforms.
+* **Swipeable Horizontal Filters:** Implemented native touch-scroll containers (`no-scrollbar`) for Curriculum subtabs, Documentation Hub categories, and Video lecture filters, avoiding vertical clutter on mobile viewports.
+* **Scroll-Safe Modals:** Added `max-h-[90vh] overflow-y-auto` to `AdminAuthModal` and `EditItemModal` to ensure all fields and action buttons remain reachable when on-screen virtual keyboards appear.
+
 ---
 
 ## 5. Security & Verification Suite

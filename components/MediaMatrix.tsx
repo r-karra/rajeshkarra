@@ -48,14 +48,14 @@ export const MediaMatrix: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap gap-1.5 items-center bg-zinc-100 p-1.5 rounded-xl border border-zinc-200">
-          <Filter className="w-3.5 h-3.5 text-zinc-500 ml-1.5 mr-1" />
+        {/* Filter Pills (Swipeable on mobile) */}
+        <div className="flex gap-1.5 items-center bg-zinc-100 p-1.5 rounded-xl border border-zinc-200 overflow-x-auto no-scrollbar scroll-smooth flex-nowrap sm:flex-wrap">
+          <Filter className="w-3.5 h-3.5 text-zinc-500 ml-1.5 mr-1 shrink-0" />
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`text-xs px-2.5 py-1 rounded-lg transition-all font-mono ${
+              className={`text-xs px-2.5 py-1 rounded-lg transition-all font-mono shrink-0 ${
                 selectedCategory === cat
                   ? 'bg-black text-white shadow-xs font-semibold'
                   : 'text-zinc-600 hover:text-black hover:bg-white/70'

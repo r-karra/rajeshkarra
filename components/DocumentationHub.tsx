@@ -82,14 +82,14 @@ export const DocumentationHub: React.FC = () => {
           </div>
         </div>
 
-        {/* Category Pills */}
-        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
-          <Filter className="w-3.5 h-3.5 text-slate-400 self-center mr-1" />
+        {/* Category Pills (Horizontally scrollable on mobile) */}
+        <div className="flex gap-1.5 pt-2 border-t border-slate-100 overflow-x-auto no-scrollbar scroll-smooth flex-nowrap sm:flex-wrap pb-1">
+          <Filter className="w-3.5 h-3.5 text-slate-400 self-center mr-1 shrink-0" />
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => handleCategoryChange(cat)}
-              className={`text-xs px-2.5 py-1 rounded-lg transition-all font-medium ${
+              className={`text-xs px-2.5 py-1 rounded-lg transition-all font-medium shrink-0 ${
                 selectedCategory === cat
                   ? 'bg-blue-600 text-white shadow-xs'
                   : 'bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200'

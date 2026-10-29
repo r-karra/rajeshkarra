@@ -36,11 +36,11 @@ export const CurriculumShowcase: React.FC = () => {
         </p>
       </div>
 
-      {/* Sub-tab navigation */}
-      <div className="flex flex-wrap gap-2 p-1.5 bg-zinc-100 rounded-xl border border-zinc-200">
+      {/* Sub-tab navigation (Swipeable on mobile) */}
+      <div className="flex gap-2 p-1.5 bg-zinc-100 rounded-xl border border-zinc-200 overflow-x-auto no-scrollbar scroll-smooth flex-nowrap sm:flex-wrap">
         <button
           onClick={() => setActiveSubTab('syllabus')}
-          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 ${
             activeSubTab === 'syllabus'
               ? 'bg-white text-blue-700 shadow-sm border border-slate-200'
               : 'text-slate-600 hover:text-slate-900'
@@ -52,38 +52,38 @@ export const CurriculumShowcase: React.FC = () => {
 
         <button
           onClick={() => setActiveSubTab('tifr')}
-          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 ${
             activeSubTab === 'tifr'
               ? 'bg-white text-blue-700 shadow-sm border border-slate-200'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
           <Award className="w-3.5 h-3.5" />
-          <span>TIFR CS/LIDS Preparation Strategy</span>
+          <span>TIFR CS/LIDS Strategy</span>
         </button>
 
         <button
           onClick={() => setActiveSubTab('soul-centric')}
-          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 ${
             activeSubTab === 'soul-centric'
               ? 'bg-white text-blue-700 shadow-sm border border-slate-200'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
           <HeartHandshake className="w-3.5 h-3.5" />
-          <span>Soul-Centric Tech (Super Book)</span>
+          <span>Soul-Centric Tech</span>
         </button>
 
         <button
           onClick={() => setActiveSubTab('k12-pathways')}
-          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+          className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all shrink-0 ${
             activeSubTab === 'k12-pathways'
               ? 'bg-white text-blue-700 shadow-sm border border-slate-200'
               : 'text-slate-600 hover:text-slate-900'
           }`}
         >
           <Layers className="w-3.5 h-3.5" />
-          <span>K-12 &amp; University Foundations</span>
+          <span>K-12 Foundations</span>
         </button>
       </div>
 
