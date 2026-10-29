@@ -120,3 +120,4 @@ export const HeroProfile: React.FC = () => {
     </section>
   );
 };
+

@@ -30,3 +30,4 @@ export const SkillsGrid: React.FC = () => {
     </div>
   );
 };
+
