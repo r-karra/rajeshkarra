@@ -41,3 +41,4 @@ try {
   console.error('❌ Database test failed:', error);
   process.exit(1);
 }
+

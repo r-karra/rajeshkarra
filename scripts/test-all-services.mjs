@@ -64,3 +64,4 @@ if (realtimeUrl) {
 } else {
   console.log('  ⚠️ Realtime URL not configured');
 }
+
