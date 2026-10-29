@@ -41,3 +41,4 @@ for (const [key, val] of Object.entries(envMap)) {
 }
 
 console.log('✅ All environment variables pushed to Vercel successfully!');
+
